@@ -8,9 +8,15 @@ class Agentsight < Formula
   version "0.2.26"
 
   depends_on :linux
+  depends_on "patchelf" => :build
+  depends_on "glibc"
 
   def install
     bin.install "agentsight"
+    system Formula["patchelf"].opt_bin/"patchelf",
+           "--set-interpreter", Formula["glibc"].opt_lib/"ld-linux-x86-64.so.2",
+           "--set-rpath", Formula["glibc"].opt_lib,
+           bin/"agentsight"
   end
 
   test do
