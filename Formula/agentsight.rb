@@ -8,6 +8,7 @@ class Agentsight < Formula
   version "0.2.26"
 
   depends_on :linux
+  depends_on "gcc" => :build
   depends_on "patchelf" => :build
   depends_on "glibc"
 
