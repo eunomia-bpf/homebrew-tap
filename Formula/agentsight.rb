@@ -1,9 +1,9 @@
 class Agentsight < Formula
   desc "System-wide AI agent tracing and monitoring with eBPF"
   homepage "https://github.com/eunomia-bpf/agentsight"
-  url "https://github.com/eunomia-bpf/agentsight/releases/download/v1.0.25/agentsight-x86_64",
+  url "https://github.com/eunomia-bpf/agentsight/releases/download/v1.0.31/agentsight-x86_64",
       using: :nounzip
-  sha256 "b390e507765f5e042ed3aa913c41095a973efa2fb65117d3486744df804abc81"
+  sha256 "1f30c316294d5dd8c94a97e59cef6d63a3c4afcf56011d3b3a57f94d675703e6"
   license "MIT"
 
   depends_on "gcc" => :build
@@ -20,7 +20,7 @@ class Agentsight < Formula
   end
 
   test do
-    assert_match "agentsight 1.0.25", shell_output("#{bin}/agentsight --version")
+    assert_match "agentsight 1.0.31", shell_output("#{bin}/agentsight --version")
     assert_match "record", shell_output("#{bin}/agentsight --help")
   end
 end
